@@ -12,14 +12,14 @@ RUN pip install -r requirements.txt
 COPY  . .
 
 # collect static files
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 # Expose to port 8000
 EXPOSE 8000
 
 # start django server
 
-CMD [ "uvicorn", "--bind", "0.0.0.0:8000", "test_server.asgi:application" ]
+CMD ["uvicorn", "test_server_django.asgi:application", "--host", "0.0.0.0", "--port", "8000"]
 
 
 
