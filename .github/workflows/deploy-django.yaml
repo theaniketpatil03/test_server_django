@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  buld:
+  build:
 
     runs-on: [ubuntu-latest]
 
