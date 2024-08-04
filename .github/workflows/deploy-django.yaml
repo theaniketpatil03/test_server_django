@@ -62,9 +62,9 @@ jobs:
         IMAGE_URI=022499008567.dkr.ecr.eu-north-1.amazonaws.com/deploy_test
         ssh -o StrictHostKeyChecking=no -i "ec2_key.pem" ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << EOF
           docker pull $IMAGE_URI:${IMAGE_TAG}
-          docker stop my-app || true
-          docker rm my-app || true
-          docker run -d -p 8000:8000 --name my-app $IMAGE_URI:${IMAGE_TAG}
+          docker stop deploy_test || true
+          docker rm deploy_test || true
+          docker run -d -p 8000:8000 --name deploy_test $IMAGE_URI:${IMAGE_TAG}
         EOF
 
       env:
