@@ -32,11 +32,11 @@ jobs:
 
     steps:
       - name: Pull image from docker hub
-        run: docker pull practice_setup/test_server_django:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/test_server_django:latest
 
       - name: Remove old container
         run: docker rm -f test_server_django
 
       - name: Run docker container
-        run: docker run -d -p 8000:8000 -name test_server_django practice_setup/test_server_django
+        run: docker run -d -p 8000:8000 --name test_server_django ${{ secrets.DOCKER_USERNAME }}/test_server_django:latest
 
