@@ -79,7 +79,7 @@ jobs:
           docker pull $IMAGE_URI:latest
           docker stop new_app_container || true
           docker rm new_app_container || true
-          docker run -d -p 8001:8001 --name new_app_container $IMAGE_URI:latest
+          docker run -d -p 8000:8000 --name new_app_container $IMAGE_URI:latest
         EOF
 
       env:
